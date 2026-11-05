@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # This program accepts a defanged IP address and returns a report from virustotal
 # Author: Jake Murray
 

@@ -4,6 +4,7 @@
 import requests
 import json
 import ipaddress
+import os
 
 API_KEY = ""
 
@@ -28,8 +29,12 @@ response = requests.get(url, headers=headers)
 # display report
 if response.status_code == 200:
     report = response.json()
-    print(json.dumps(report, indent=4))
-
+    report_dump = json.dumps(report, indent=4)
+    # print(json.dumps(report, indent=4))
+    print(f"URL Owner: {report["data"]["attributes"]["as_owner"]}")
+    print(f"URL: {report["data"]["id"]}")
+    with open("report.json", "w") as f:
+        f.write(report_dump)
 else:
     print(f"Error: {response.status_code}")
     print(response.text)

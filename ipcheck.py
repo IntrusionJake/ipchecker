@@ -6,7 +6,7 @@ import json
 import ipaddress
 import os
 
-API_KEY = ""
+API_KEY = os.getenv("VT_API_KEY")
 
 # Get defanged IP from User
 ip = input("Enter defanged IP address: ")
